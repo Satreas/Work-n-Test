@@ -33,14 +33,15 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
     <MAINSOURCE value="TheGameProj.cpp"/>
-    <INCLUDEPATH value="..\;MyFG;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\OpenWire;$(BCB)\LabPacks"/>
-    <LIBPATH value="..\;MyFG;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\LabPacks;$(BCB)\LabPacks\IPPLib"/>
+    <INCLUDEPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG&quot;;..;MyFG;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\OpenWire;$(BCB)\LabPacks"/>
+    <LIBPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG&quot;;..;MyFG;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\LabPacks;$(BCB)\LabPacks\IPPLib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I..\. -IMyFG -I$(BCB)\include -I$(BCB)\include\vcl -I$(BCB)\OpenWire 
-      -I$(BCB)\LabPacks -src_suffix cpp -D_DEBUG -boa"/>
+    <IDLCFLAGS value="-I&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG&quot; -I.. -IMyFG 
+      -I$(BCB)\include -I$(BCB)\include\vcl -I$(BCB)\OpenWire -I$(BCB)\LabPacks 
+      -src_suffix cpp -D_DEBUG -boa"/>
     <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
       -tW -tWM"/>
     <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>

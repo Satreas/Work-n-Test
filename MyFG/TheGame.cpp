@@ -18,17 +18,31 @@ __fastcall TmainForm::TmainForm(TComponent* Owner)
         defaultMs = 3;
         P1.moveSpeed = P1.moveSpeed = defaultMs;
         P1.canDash = P2.canDash = false;
+        P1.canMove = P2.canMove = true;
         P1.alJump = P2.alJump = true;
         P1.jDir = P2.jDir = true;
         P1.isOnGround = P2.isOnGround = true;
         P1.jSpeed = P2.jSpeed = 10;
         jTop = 0;
-        sHeight = 323;
-        cHeight = 160;
+        sHeight = 323; cHeight = 160;
         floor = 238;
+
         GameWindows->ActivePageIndex = 0;
 }
 
+void __fastcall TmainForm::stateControlTimer(TObject *Sender)
+{
+          if (Player1_img->Top >= floor)
+           {
+            P1.isOnGround=true;
+           }
+          else
+           {
+            P1.isOnGround=false;
+           }
+
+}
+//Menu-Buttons---------------------------------------------------------------
 
 void __fastcall TmainForm::mButtonStartClick(TObject *Sender)
 {
@@ -38,8 +52,6 @@ void __fastcall TmainForm::mButtonStartClick(TObject *Sender)
         mButtonStart->Visible = false;
         mButtonExit->Visible = false;
 }
-
-//Menu-Buttons---------------------------------------------------------------
 
 void __fastcall TmainForm::aMenuExecute(TObject *Sender)
 {
@@ -57,25 +69,33 @@ void __fastcall TmainForm::mButtonExitClick(TObject *Sender)
 void __fastcall TmainForm::FormKeyPress(TObject *Sender, char &Key)
 {
         //ShowMessage(IntToStr(Key));
-        switch(Key)
-        {
-         case 'a':{                                          // A button press
-                  if (dashRegP1->Enabled == true) P1.moveSpeed*=2;
-                  mLeft->Enabled = true; break;
-                 }
-         case 'd':{                                         // D button press
-                   if (dashRegP1->Enabled == true) P1.moveSpeed*=2;
-                   mRight->Enabled = true; break;
-                  }
-         case 's':{                                         // S button press
-                   Player1_img->Height=cHeight;
-                  }
-         case 'w':if(P1.alJump==true)                       // W button press
-                   {
-                    P1.jDir=true; P1.moveSpeed *= 1.5;
-                    JumpH->Enabled = true; break;
+        if(P1.canMove == true)
+         switch(Key)
+         {
+          case 'a':{                                         // A button press
+                    if (dashRegP1->Enabled == true) P1.moveSpeed*=2;
+                    mLeft->Enabled = true; break;
                    }
-        }
+          case 'd':{                                         // D button press
+                    if (dashRegP1->Enabled == true) P1.moveSpeed*=2;
+                    mRight->Enabled = true; break;
+                   }
+          case 'w':{                                         // W button press
+                    if(P1.alJump==true)
+                     {
+                      P1.jDir=true; P1.moveSpeed *= 1.5;
+                      JumpH->Enabled = true;
+                     }; break;
+                   }
+          case 'e':{
+                    if(P1.isOnGround == true)
+                     {
+                      P1_punch->Left = Player1_img->Left+Player1_img->Width-50;
+                      P1_punch->Top = Player1_img->Top+Player1_img->Height/2-120;
+                      P1.canMove = false; punch_P1->Enabled = true;
+                     } break;
+                   }
+         }
 }
 
 void __fastcall TmainForm::FormKeyUp(TObject *Sender, WORD &Key,
@@ -85,22 +105,18 @@ void __fastcall TmainForm::FormKeyUp(TObject *Sender, WORD &Key,
         switch(Key)
         {
          case 'A':{                                          //A button up
-                  mLeft->Enabled = false; P1.moveSpeed = defaultMs;
-                  dashRegP1->Enabled = true; break;
-                 }
+                   mLeft->Enabled = false; P1.moveSpeed = defaultMs;
+                   dashRegP1->Enabled = true; break;
+                  }
          case 'D':{                                          //D button up
-                  mRight->Enabled = false; P1.moveSpeed = defaultMs;
-                  dashRegP1->Enabled = true; break;
-                 }
-         case 'S':{                                          // S button up
-                   Player1_img->Height=sHeight;
+                   mRight->Enabled = false; P1.moveSpeed = defaultMs;
+                   dashRegP1->Enabled = true; break;
                   }
          case 'W':{P1.jDir=false; break;}                    //W button up
         }
 }
 
 //Player1-Stats--------------------------------------------------------------
-
 void __fastcall TmainForm::JumpHTimer(TObject *Sender)
 {
         P1.alJump = false;
@@ -124,12 +140,16 @@ void __fastcall TmainForm::JumpHTimer(TObject *Sender)
 
 void __fastcall TmainForm::mLeftTimer(TObject *Sender)
 {
-        Player1_img->Left-=P1.moveSpeed;
+        if(Player1_img->Left > 0 && P1.canMove == true)
+         Player1_img->Left-=P1.moveSpeed;
+        else mLeft->Enabled = false;
 }
 
 void __fastcall TmainForm::mRightTimer(TObject *Sender)
 {
-        Player1_img->Left+=P1.moveSpeed;
+        if(Player1_img->Left+Player1_img->Width < mainForm->ClientWidth && P1.canMove == true)
+         Player1_img->Left+=P1.moveSpeed;
+        else mRight->Enabled = false;
 }
 
 void __fastcall TmainForm::dashRegP1Timer(TObject *Sender)
@@ -137,4 +157,12 @@ void __fastcall TmainForm::dashRegP1Timer(TObject *Sender)
         dashRegP1->Enabled = false;
 }
 
+void __fastcall TmainForm::punch_P1Timer(TObject *Sender)
+{
+        P1_punch->Left = -1000;
+        P1_punch->Top = -1000;
+        P1.canMove = true;
+}
 //Player2-Stats--------------------------------------------------------------
+
+

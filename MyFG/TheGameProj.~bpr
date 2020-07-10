@@ -4,12 +4,12 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="TheGameProj.exe"/>
-    <OBJFILES value="TheGameProj.obj TheGame.obj"/>
+    <OBJFILES value="TheGameProj.obj &quot;C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG\TheGame.obj&quot;"/>
     <RESFILES value="TheGameProj.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) TheGame.dfm"/>
+    <RESDEPEN value="$(RESFILES) &quot;C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG\TheGame.dfm&quot;"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="vcl.lib rtl.lib acntBCB6_R.lib vclx.lib"/>
@@ -23,7 +23,7 @@
       RxDB6.bpi RxCtl6.bpi ZComponent.bpi ZPlain.bpi ZCore.bpi ZDbc.bpi 
       ZParseSql.bpi PKIECTRLc6.bpi OpenWirePkgCB6.bpi SignalLabBasicPkgCB6.bpi 
       SignalLabAdditionalPkgCB6.bpi UserLabBasicPkgCB6.bpi InstrumentLabPkgCB6.bpi"/>
-    <PATHCPP value=".;"/>
+    <PATHCPP value=".;&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG&quot;"/>
     <PATHPAS value=".;"/>
     <PATHRC value=".;"/>
     <PATHASM value=".;"/>
@@ -33,14 +33,15 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
     <MAINSOURCE value="TheGameProj.cpp"/>
-    <INCLUDEPATH value="..\;MyFG;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\OpenWire;$(BCB)\LabPacks"/>
-    <LIBPATH value="..\;MyFG;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\LabPacks;$(BCB)\LabPacks\IPPLib"/>
+    <INCLUDEPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG&quot;;..;MyFG;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\OpenWire;$(BCB)\LabPacks"/>
+    <LIBPATH value="&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG&quot;;..;MyFG;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\LabPacks;$(BCB)\LabPacks\IPPLib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I..\. -IMyFG -I$(BCB)\include -I$(BCB)\include\vcl -I$(BCB)\OpenWire 
-      -I$(BCB)\LabPacks -src_suffix cpp -D_DEBUG -boa"/>
+    <IDLCFLAGS value="-I&quot;C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG&quot; -I.. -IMyFG 
+      -I$(BCB)\include -I$(BCB)\include\vcl -I$(BCB)\OpenWire -I$(BCB)\LabPacks 
+      -src_suffix cpp -D_DEBUG -boa"/>
     <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
       -tW -tWM"/>
     <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
@@ -58,7 +59,7 @@
   <FILELIST>
       <FILE FILENAME="TheGameProj.res" FORMNAME="" UNITNAME="TheGameProj.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="TheGameProj.cpp" FORMNAME="" UNITNAME="TheGameProj" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="TheGame.cpp" FORMNAME="mainForm" UNITNAME="TheGame" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG\TheGame.cpp" FORMNAME="mainForm" UNITNAME="TheGame" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

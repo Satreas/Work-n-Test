@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 //---------------------------------------------------------------------------
-USEFORM("TheGame.cpp", mainForm);
+USEFORM("C:\Program Files (x86)\Borland\CBuilder6\Projects\MyFG\TheGame.cpp", mainForm);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
